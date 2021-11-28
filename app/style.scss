@@ -1,0 +1,58 @@
+@forward 'colors';
+@forward 'base';
+
+@use 'function' as *;
+@use 'breakpoint' as *;
+
+body {
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: rem(16);
+  background: #fafafa;
+
+  .wrapper {
+    width: rem(375);
+    margin: 0 auto;
+    background: linear-gradient(150.03deg, var(--gradient-start) 0%, var(--gradient-end) 84.51%);
+
+    .logo-img {
+      width: rem(100);
+      height: rem(51.89);
+      padding-top: rem(31);
+      margin: 0 0 rem(32.11) rem(32);
+    }
+
+    .hero-img {
+    }
+
+    main {
+      text-align: center;
+      color: var(--desaturated-red);
+      margin: rem(64) rem(32) rem(92) rem(32);
+
+      h1 {
+        font-size: rem(40);
+        line-height: rem(42);
+        letter-spacing: rem(10.83);
+        font-weight: 300;
+        margin-bottom: rem(16);
+
+        span {
+          color: var(--dark-grayish-red);
+          font-weight: 600;
+        }
+      }
+
+      p {
+        font-size: rem(14);
+        line-height: rem(22);
+        margin-bottom: rem(32);
+      }
+
+      input {
+        display: block;
+      }
+    }
+  }
+}

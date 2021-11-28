@@ -1,0 +1,13 @@
+:root {
+  //   ### Primary
+  --desaturated-red: #ce9797;
+  --soft-red: #f96262;
+
+  // ### Neutral
+  --dark-grayish-red: #413a3a;
+
+  // ### Gradients
+  --gradient-start: hsl(0, 0%, 100%);
+  --gradient-end: hsl(0, 100%, 98%);
+  --gradient: hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+}
