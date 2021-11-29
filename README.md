@@ -21,7 +21,7 @@ Users should be able to:
 ### Links
 
 - [Live](https://lonelybuddy.github.io/base-apparel-coming-soon-page/)
-- [Solution]()
+- [Solution](https://www.frontendmentor.io/solutions/htmlcsssassjs-nXR8flSgV)
 
 ### Built with
 
