@@ -14,6 +14,14 @@ p {
   margin: 0;
 }
 
+/* show or hide errors message/img */
+.show-error {
+  visibility: visible;
+}
+.hide-error {
+  visibility: hidden;
+}
+
 footer {
   color: var(--soft-blue);
   position: absolute;

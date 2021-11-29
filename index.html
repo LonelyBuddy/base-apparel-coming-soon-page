@@ -14,7 +14,6 @@
   <body>
     <div class="wrapper">
       <img class="logo-img" aria-hidden="true" src="images/logo.svg" alt="logo img" />
-
       <img class="hero-img" aria-hidden="true" src="images/hero-mobile.jpg" alt="hero img" />
 
       <main>
@@ -28,12 +27,68 @@
 
         <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
 
-        <input type="email" placeholder="Email Address" required />
+        <label>
+          <input type="email" placeholder="Email Address" required />
+
+          <button type="submit">
+            <img aria-hidden="true" src="images/icon-arrow.svg" alt="arrow" />
+          </button>
+
+          <img class="hide-error error error-img" aria-hidden="true" src="images/icon-error.svg" alt="error img" />
+          <span class="hide-error error error-message">Please Provide a valid email</span>
+        </label>
       </main>
     </div>
     <!-- <footer>
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a target="_blank" href="https://www.frontendmentor.io/profile/LonelyBuddy">Henry Zheng</a>.
     </footer> -->
+
+    <script>
+      const errors = document.querySelectorAll('.error');
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', clearEmail);
+      input.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+          clearEmail();
+        } else {
+          validation();
+        }
+      });
+
+      function showErrors() {
+        errors.forEach((err) => {
+          err.classList.remove('hide-error');
+          err.classList.add('show-error');
+        });
+      }
+
+      function hideErrors() {
+        errors.forEach((err) => {
+          err.classList.remove('show-error');
+          err.classList.add('hide-error');
+        });
+      }
+
+      function clearEmail() {
+        input.value = '';
+        hideErrors();
+      }
+
+      function validation() {
+        const email = input.value;
+        const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (email.match(pattern)) {
+          hideErrors();
+        } else if (email === '') {
+          hideErrors();
+        } else {
+          showErrors();
+        }
+      }
+    </script>
   </body>
 </html>

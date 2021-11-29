@@ -1,13 +1,19 @@
 :root {
   //   ### Primary
   --desaturated-red: #ce9797;
+  --desaturated-red-half-opacity: hsla(0, 36%, 70%, 50%);
   --soft-red: #f96262;
 
   // ### Neutral
   --dark-grayish-red: #413a3a;
 
   // ### Gradients
-  --gradient-start: hsl(0, 0%, 100%);
-  --gradient-end: hsl(0, 100%, 98%);
-  --gradient: hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+  --gradient-start: #ffffff;
+  --gradient-end: #fff5f5;
+  --gradient-btn-start: #f8bfbf;
+  --gradient-btn-end: #ee8c8c;
+
+  // ### button
+  --btn-hover-overlay: rgba(255, 255, 255, 0.5);
+  --shadow-btn: 0px 15px 20px rgba(198, 110, 110, 0.247569);
 }

@@ -1,10 +1,14 @@
 :root {
   --desaturated-red: #ce9797;
+  --desaturated-red-half-opacity: hsla(0, 36%, 70%, 50%);
   --soft-red: #f96262;
   --dark-grayish-red: #413a3a;
-  --gradient-start: hsl(0, 0%, 100%);
-  --gradient-end: hsl(0, 100%, 98%);
-  --gradient: hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+  --gradient-start: #ffffff;
+  --gradient-end: #fff5f5;
+  --gradient-btn-start: #f8bfbf;
+  --gradient-btn-end: #ee8c8c;
+  --btn-hover-overlay: rgba(255, 255, 255, 0.5);
+  --shadow-btn: 0px 15px 20px rgba(198, 110, 110, 0.247569);
 }
 
 /* Box sizing rules */
@@ -20,6 +24,15 @@ body,
 h1,
 p {
   margin: 0;
+}
+
+/* show or hide errors message/img */
+.show-error {
+  visibility: visible;
+}
+
+.hide-error {
+  visibility: hidden;
 }
 
 footer {
@@ -70,6 +83,95 @@ body .wrapper main p {
   line-height: 1.375rem;
   margin-bottom: 2rem;
 }
-body .wrapper main input {
+body .wrapper main label {
   display: block;
+  height: 3rem;
+  position: relative;
+}
+body .wrapper main label input {
+  width: 100%;
+  height: 100%;
+  color: var(--dark-grayish-red);
+  border: 1px solid var(--desaturated-red-half-opacity);
+  border-radius: 1.75rem;
+  padding: 0 0 0 1.5rem;
+}
+body .wrapper main label input::-webkit-input-placeholder {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+body .wrapper main label input::-moz-placeholder {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+body .wrapper main label input:-ms-input-placeholder {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+body .wrapper main label input::-ms-input-placeholder {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+body .wrapper main label input, body .wrapper main label input::placeholder {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+body .wrapper main label input::-webkit-input-placeholder {
+  color: var(--desaturated-red);
+  opacity: 0.5;
+}
+body .wrapper main label input::-moz-placeholder {
+  color: var(--desaturated-red);
+  opacity: 0.5;
+}
+body .wrapper main label input:-ms-input-placeholder {
+  color: var(--desaturated-red);
+  opacity: 0.5;
+}
+body .wrapper main label input::-ms-input-placeholder {
+  color: var(--desaturated-red);
+  opacity: 0.5;
+}
+body .wrapper main label input::placeholder {
+  color: var(--desaturated-red);
+  opacity: 0.5;
+}
+body .wrapper main label button {
+  padding: 0;
+  border: none;
+  background: linear-gradient(135deg, var(--gradient-btn-start) 0%, var(--gradient-btn-end) 100%);
+  -webkit-box-shadow: var(--shadow-btn);
+          box-shadow: var(--shadow-btn);
+  cursor: pointer;
+}
+body .wrapper main label button, body .wrapper main label button:hover::after {
+  position: absolute;
+  width: 4rem;
+  height: 100%;
+  top: 0;
+  right: 0;
+  border-radius: 28px;
+}
+body .wrapper main label button:hover::after {
+  content: "";
+  background: var(--btn-hover-overlay);
+}
+body .wrapper main label .error-img {
+  position: absolute;
+  top: 0.8125rem;
+  right: 4.5rem;
+}
+body .wrapper main label .error-message {
+  position: absolute;
+  bottom: -1.3125rem;
+  left: 1.5rem;
+  color: var(--soft-red);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 0.8125rem;
 }/*# sourceMappingURL=style.css.map */
