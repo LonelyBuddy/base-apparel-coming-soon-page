@@ -20,7 +20,7 @@ Users should be able to:
 
 ### Links
 
-- [Live]()
+- [Live](https://lonelybuddy.github.io/base-apparel-coming-soon-page/)
 - [Solution]()
 
 ### Built with
