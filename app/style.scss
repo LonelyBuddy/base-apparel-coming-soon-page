@@ -10,26 +10,69 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: rem(16);
   background: #fafafa;
+  display: grid;
+  place-items: center;
 
   .wrapper {
+    position: relative;
     width: rem(375);
     margin: 0 auto;
-    background: linear-gradient(150.03deg, var(--gradient-start) 0%, var(--gradient-end) 84.51%);
+    background: linear-gradient(150deg, var(--gradient-start) 0%, var(--gradient-end) 84.51%);
+    @include breakpoint-up(large) {
+      width: rem(1440);
+      height: rem(800);
+      display: grid;
+      grid-template-columns: rem(165) rem(665) 1fr;
+      grid-template-rows: rem(65) rem(31.5) rem(128.76) rem(566);
+      &::before {
+        content: '';
+        position: absolute;
+        width: 830px;
+        height: 830px;
+        top: 0;
+        left: 0;
+        background: url(../images/bg-pattern-desktop.svg) no-repeat;
+        z-index: 1;
+      }
+    }
 
     .logo-img {
       width: rem(100);
       height: rem(51.89);
       padding-top: rem(31);
       margin: 0 0 rem(32.11) rem(32);
+      @include breakpoint-up(large) {
+        width: rem(157.59);
+        height: rem(32.5);
+        padding: 0;
+        margin: 0;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        z-index: 2;
+      }
     }
 
     .hero-img {
+      content: url(../images/hero-mobile.jpg);
+      @include breakpoint-up(large) {
+        content: url(../images/hero-desktop.jpg);
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+      }
     }
 
     main {
       text-align: center;
       color: var(--desaturated-red);
       margin: rem(64) rem(32) rem(92) rem(32);
+      @include breakpoint-up(large) {
+        text-align: left;
+        width: rem(445);
+        margin: 0;
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+        z-index: 2;
+      }
 
       h1 {
         font-size: rem(40);
@@ -37,6 +80,12 @@ body {
         letter-spacing: rem(10.83);
         font-weight: 300;
         margin-bottom: rem(16);
+        @include breakpoint-up(large) {
+          font-size: rem(64);
+          line-height: rem(64);
+          letter-spacing: rem(17.32);
+          margin-bottom: rem(32);
+        }
 
         span {
           color: var(--dark-grayish-red);
@@ -48,12 +97,21 @@ body {
         font-size: rem(14);
         line-height: rem(22);
         margin-bottom: rem(32);
+
+        @include breakpoint-up(large) {
+          font-size: rem(16);
+          line-height: rem(28);
+          margin-bottom: rem(40);
+        }
       }
 
       label {
         display: block;
         height: rem(48);
         position: relative;
+        @include breakpoint-up(large) {
+          height: rem(56);
+        }
 
         input {
           width: 100%;
@@ -62,12 +120,25 @@ body {
           border: 1px solid var(--desaturated-red-half-opacity);
           border-radius: rem(28px);
           padding: 0 0 0 rem(24);
+          @include breakpoint-up(large) {
+            padding-left: rem(32);
+          }
+
+          &:focus {
+            border: 1px solid var(--soft-red);
+            outline: 1px solid var(--soft-red);
+          }
+
           &,
           &::placeholder {
             font-size: rem(14);
             line-height: rem(28);
             font-weight: 400;
+            @include breakpoint-up(large) {
+              font-size: rem(16);
+            }
           }
+
           &::placeholder {
             color: var(--desaturated-red);
             opacity: 0.5;
@@ -80,6 +151,7 @@ body {
           background: linear-gradient(135deg, var(--gradient-btn-start) 0%, var(--gradient-btn-end) 100%);
           box-shadow: var(--shadow-btn);
           cursor: pointer;
+
           &,
           &:hover::after {
             position: absolute;
@@ -88,15 +160,14 @@ body {
             top: 0;
             right: 0;
             border-radius: 28px;
+            @include breakpoint-up(large) {
+              width: rem(100);
+            }
           }
           //button overlay
           &:hover::after {
             content: '';
             background: var(--btn-hover-overlay);
-          }
-
-          //arrow
-          img {
           }
         }
 
@@ -104,6 +175,10 @@ body {
           position: absolute;
           top: rem(13);
           right: rem(72);
+          @include breakpoint-up(large) {
+            top: rem(17);
+            right: rem(116);
+          }
         }
 
         .error-message {
@@ -114,6 +189,11 @@ body {
           font-size: rem(13);
           font-weight: (400);
           line-height: rem(13);
+          @include breakpoint-up(large) {
+            bottom: rem(-32);
+            left: rem(32);
+            line-height: rem(28);
+          }
         }
       }
     }

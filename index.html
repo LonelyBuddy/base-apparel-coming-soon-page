@@ -14,7 +14,7 @@
   <body>
     <div class="wrapper">
       <img class="logo-img" aria-hidden="true" src="images/logo.svg" alt="logo img" />
-      <img class="hero-img" aria-hidden="true" src="images/hero-mobile.jpg" alt="hero img" />
+      <img class="hero-img" aria-hidden="true" alt="hero img" />
 
       <main>
         <h1>
@@ -46,17 +46,48 @@
 
     <script>
       const errors = document.querySelectorAll('.error');
-      const input = document.querySelector('input');
       const button = document.querySelector('button');
+      const input = document.querySelector('input');
 
-      button.addEventListener('click', clearEmail);
-      input.addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
+      button.addEventListener('click', () => {
+        if (validation(input.value)) {
+          hideErrors();
           clearEmail();
         } else {
-          validation();
+          showErrors();
         }
       });
+
+      input.addEventListener('keyup', (event) => {
+        const email = input.value;
+        // enter key
+        if (event.key === 'Enter') {
+          if (validation(email)) {
+            hideErrors();
+            clearEmail();
+          }
+          if (email === '') {
+            showErrors();
+          }
+        } else {
+          // other keys
+          if (validation(email)) {
+            hideErrors();
+          } else {
+            if (email === '') {
+              hideErrors();
+            } else {
+              showErrors();
+            }
+          }
+        }
+      });
+
+      function validation(email) {
+        const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        return !!email.match(pattern);
+      }
 
       function showErrors() {
         errors.forEach((err) => {
@@ -74,20 +105,6 @@
 
       function clearEmail() {
         input.value = '';
-        hideErrors();
-      }
-
-      function validation() {
-        const email = input.value;
-        const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-        if (email.match(pattern)) {
-          hideErrors();
-        } else if (email === '') {
-          hideErrors();
-        } else {
-          showErrors();
-        }
       }
     </script>
   </body>
